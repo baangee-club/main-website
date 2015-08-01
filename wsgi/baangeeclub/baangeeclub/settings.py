@@ -30,7 +30,7 @@ else:
 
 TEMPLATE_DEBUG = DEBUG
 
-if DEPLOY:
+if DEBUG:
 	ALLOWED_HOSTS = []
 else:
 	ALLOWED_HOSTS = ['*']
