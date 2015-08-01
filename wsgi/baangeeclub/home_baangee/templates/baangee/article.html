@@ -1,0 +1,27 @@
+{%extends 'baangee/base.html' %}
+
+{% block body_block%}
+<div class="section">
+	<h3 class="heading">{{article.title}}</h3>
+	<div class="container">
+		<p>{{article.content|safe}}</p>
+		<div class="row">
+		{%if article.image1%}
+			<div class="thumbnail col-xs-4">
+				<img src="{{article.image1.url}}">
+			</div>
+		{%endif%}
+		{%if article.image2%}
+			<div class="thumbnail col-xs-4">
+				<img src="{{article.image2.url}}">
+			</div>
+		{%endif%}
+		{%if article.image3%}
+			<div class="thumbnail col-xs-4">
+				<img src="{{article.image3.url}}">
+			</div>
+		{%endif%}
+		</div>
+		<hr>
+	</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{%extends 'baangee/base.html' %}
+
+{% block body_block%}
+	<div class="section">
+		<h3 class="heading">Articles</h3>
+		<div class="container">
+		{% for article in articles%}
+			<h4>{{article.title}}</h4>
+			<p>{{article.content|truncatewords:50}}</p><a href="{{article.pk}}/" class="btn btn-primary">Read more..</a>
+			<hr>
+		{%endfor%}
+	</div>
+{% endblock %}

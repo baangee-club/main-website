@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		{% load staticfiles %}
+		<title>Baangee Club</title>
+		<!--Font Awesome-->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		
+		<link rel="stylesheet" href="{% static 'css/jquery-ui.min.css'%}"/>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"/>
+		
+		<!--Global css-->
+		<link rel="stylesheet" href="{% static 'baangee/css/main.css'%}"/>
+		
+		<!-- Google Font-->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Niconne:400,700" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+		
+		{% block head_block%}{% endblock %}
+	</head>
+	<body>
+		
+			<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" arial-expanded="false" aria-controls="navbar">
+						<i class="fa fa-bars"></i>
+					</button>
+					<a href="{% if is_index %}#home{% else %}/#home{%endif%}" class="navbar-brand heading">Baangee Club</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse navbar-right">
+					<ul class="nav navbar-nav">
+						<li><a href="{% if is_index %}#home{% else %}/#home{%endif%}">About</a></li>
+						<li><a href="{% if is_index %}#services{% else %}/#programme{%endif%}">Programme</a></li>
+						<li><a href="{% if is_index %}#contact{% else %}/#contact{%endif%}">Contact Us</a></li>
+						<li><a href="/gallery">Gallery</a></li>
+						<li><a href="/article">Articles</a></li>
+						<li><a href="/786ms">786 Multi Services</a></li>
+					</ul>
+				</div>
+				
+			</div>
+		</nav>
+		<div class="wrap">
+			<div class="header" id="home">
+				<div class="container">
+					<div class="row">
+						{% block body_head_title %}
+							<h1 class="header-heading">Baangee Club</h1>
+						{% endblock %}
+					</div>
+					<div class="row">
+						{% block body_head_content %}
+							<p>Helping poor</p>
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+			{% block body_block%}
+			
+			{% endblock %}		
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-9">
+						&copy;2015 786 Mutil Services. All Rights Reserved.
+					</div>
+					<div class="col-xs-3">
+						
+							<div class="footer-social-row">
+								<a class="social-footer-icon facebook" href="#"><i class="fa fa-facebook fa-lg"></i></a> <a class="social-footer-icon twitter" href="#"><i class="fa fa-twitter fa-lg"></i></a>
+							</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		
+		<!--Jquery UI-->
+		<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+		
+		<!--Bootstrap-->
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		
+		<!--Custom JQuery/Javascript-->
+		<script src="{% static 'baangee/js/main.js' %}"></script>
+		
+		{% block js_include%}{% endblock%}
+	</body>
+</html>

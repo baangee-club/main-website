@@ -1,0 +1,109 @@
+{%extends 'baangee/base.html' %}
+
+{% block body_head_title %}
+	<h1 class="header-heading">Baangee Club</h1>
+{% endblock %}
+
+{% block body_head_content %}
+	<p>Helping poor</p>
+{% endblock %}						
+
+{% block js_include%}
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock%}
+
+{% block body_block%}
+<div class="section" id="about">
+	<div class="container">
+		<h3 class="heading">About</h3>
+		<p>Baangee club is a well organised Non Government Organisation (NGO) established by Nehru Yuva Kendra Sangathan (NYKS is an autonomous organization under the Government of India, Ministry of Youth Affairs and Sports) in Pateri, kaimoor(bhabhua), Bihar in accordance to the government Act-21,1860 in the year 2008, and is running successfully working for the poor people. Over the years, Baangee Club has established a network of youth in villages, and has planned many projects like Shaheen Gatisheel Pustakalaya where children get different type of books at the lowest charge of 5/- Rs per week, Laadli fashion Tailoring Institute Where local village girls and womens are taking training, and many other programmes are running under our NGO. We also helped poor womens by forming Self Help Group (SHG) which helped them financially and morally to develop and keep pace with the our developing country. We are also helping poor and paralised children in there medication and treatment some of them are suffering from polio.
+
+		Many Other projects are on paper and some are under process these will surely help our region, State and finally our country to develop fast. For all this we surely need your help, Yes every individual can help us in our holy work by joining us or donating some amount for the poor people.
+
+		To show us your support please like us on facebook or recommend on Google. Thankyou.
+		</p>
+	</div>
+</div>
+<div class="section" id="programme">
+	<div class="container">
+		<h3 class="heading">Programmes</h3>
+		{% for program in programmes%}
+			<div class="programme">
+				<h4 class="heading">{{program.heading}}</h4>
+				<p>{{program.description|safe}}</p>
+				<div class="row">
+				{%if program.image1%}
+					<div class="thumbnail col-xs-4">
+						<img src="{{program.image1.url}}">
+					</div>
+				{%endif%}
+				{%if program.image2%}
+					<div class="thumbnail col-xs-4">
+						<img src="{{program.image2.url}}">
+					</div>
+				{%endif%}
+				{%if program.image3%}
+					<div class="thumbnail col-xs-4">
+						<img src="{{program.image3.url}}">
+					</div>
+				{%endif%}
+				</div>
+				{%if program.album%}
+					Album - <a href="album/{{program.album.pk}}">{{program.album.name}}</a>
+				{%endif%}
+				
+			</div>
+		{%endfor%}
+	</div>
+</div>
+<div class="section" id="contact">
+	<div class="container">
+		<h3 class="heading">Contact Us</h3>
+		{%if msg%}
+			{%if form.errors%}
+				<div class="alert alert-warning">
+			{%else%}
+				<div class="alert alert-success">
+			{%endif%}
+				{{msg}}
+			</div>
+		{%endif%}
+		<form action="." method="post">
+			{%csrf_token%}
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<lable>{{form.name.label}}</lable>
+					{{form.name}}
+					{{form.name.errors}}
+				</div>
+				<div class="form-group">
+					<lable>{{form.email.label}}</lable>
+					{{form.email}}
+					{{form.email.errors}}
+				</div>
+				<div class="form-group">
+					<lable>{{form.captcha.label}}</lable>
+					{{form.captcha}}
+					{{form.captcha.errors}}
+				</div>
+				<div class="form-group">
+					<input class="btn btn-primary" type="submit" value="Submit"/>
+					<input class="btn btn-default" type="reset" value="Reset"/>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<lable>{{form.message.label}}</lable>
+					{{form.message}}
+					{{form.message.errors}}
+				</div>
+			</div>
+		</div>
+		
+
+
+		</form>
+	</div>
+</div>
+{% endblock %}	

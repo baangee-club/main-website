@@ -1,0 +1,16 @@
+.vertical-center{
+	tbody{
+		tr{
+			th,td{
+				vertical-align:middle;
+			}
+		}
+	}
+}
+.center{
+	tr{
+		td,th{
+			text-align:center;
+		}
+	}
+}

@@ -4,17 +4,17 @@ from setuptools import setup
 
 setup(
     # GETTING-STARTED: set your app name:
-    name='YourAppName',
+    name='Baangee Club',
     # GETTING-STARTED: set your app version:
     version='1.0',
     # GETTING-STARTED: set your app description:
-    description='OpenShift App',
+    description='NGO',
     # GETTING-STARTED: set author name (your name):
-    author='Your Name',
+    author='Zeeshan Khan',
     # GETTING-STARTED: set author email (your email):
-    author_email='example@example.com',
+    author_email='zkhan1093@gmail.com',
     # GETTING-STARTED: set author url (your url):
-    url='http://www.python.org/sigs/distutils-sig/',
+    url='http://zkhan93.github.io',
     # GETTING-STARTED: define required django version:
-    install_requires=['Django<=1.8'],
+    install_requires=['Django>=1.8'],
 )

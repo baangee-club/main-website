@@ -1,0 +1,15 @@
+{%extends 'baangee/base.html' %}
+
+{% block body_block%}
+<div class="section">
+	<h3 class="heading">{{album.name}}</h3>
+	<div class="container">
+	<p>{{album.description}}</p>
+	<hr>
+		{%for photo in album.photo_set.all%}
+			<div class="thumbnail col-xs-6 col-sm-4">
+				<img src="{{photo.image.url}}">
+			</div>
+		{%endfor%}
+	</div>
+{% endblock %}
