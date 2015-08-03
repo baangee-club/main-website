@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import *
 from .forms import *
+from django.http import HttpResponse
+import json
+from django.template.context_processors import csrf
 
 def handler404(request):
 	return render(request,'error.html',{'heading':'Error 404','content':'Requested URL '+request.build_absolute_uri()+' not found'})
@@ -16,7 +19,9 @@ def handler400(request):
 
 def index(request):
 	data={}
+	data.update(csrf(request))
 	if request.method=='POST':
+		data={}
 		form=MessageForm(request.POST)
 		if form.is_valid():
 			email=form.cleaned_data['email']
@@ -30,12 +35,31 @@ def index(request):
 			msg.save()
 			form=MessageForm()
 			data['msg']='Thank You '+guest.name+', we have received your message and will responce as requied.'
+		else:
+			data['errors']=form.errors
+			data['msg']='There are errors in form.'
+		return HttpResponse(json.dumps(data),content_type="application/json")
 	else:
 		form=MessageForm()
-	data['programmes']=Programme.objects.all()
-	data['form']=form
-	return render(request,'index.html',data)
-	
+		data['programmes']=Programme.objects.all()
+		data['form']=form
+		return render(request,'index.html',data)
+
+'''
+		form=MessageForm(request.POST)
+		if form.is_valid():
+			email=form.cleaned_data['email']
+			try:
+				guest=Guest.objects.get(email=email)
+			except:
+				guest=Guest(name=form.cleaned_data['name'],email=email)
+				guest.save()
+			msg=form.save(commit=False)
+			msg.author=guest
+			msg.save()
+			form=MessageForm()
+			data['msg']='Thank You '+guest.name+', we have received your message and will responce as requied.'
+'''
 def album(request,album_id=0):
 	data={}
 	album=Album.objects.get(pk=album_id)

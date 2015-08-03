@@ -10,6 +10,7 @@
 
 {% block js_include%}
 		<script src='https://www.google.com/recaptcha/api.js'></script>
+
 {% endblock%}
 
 {% block body_block%}
@@ -60,44 +61,37 @@
 	<div class="container">
 		<h3 class="heading">Contact Us</h3>
 		<p>Leave us a message or e-mail us as at <a href="mailto:care@baangeeclub.in">care@baangeeclub.in</a></p>
-		{%if msg%}
-			{%if form.errors%}
-				<div class="alert alert-warning">
-			{%else%}
-				<div class="alert alert-success">
-			{%endif%}
-				{{msg}}
-			</div>
-		{%endif%}
-		<form action="." method="post">
-			{%csrf_token%}
+		<div id="msg"></div>
+		<form id="post-message" action="." method="post">
 			<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">
 					<lable>{{form.name.label}}</lable>
 					{{form.name}}
-					{{form.name.errors}}
+					<ul class="errorlist" id="name_error"></ul>
 				</div>
 				<div class="form-group">
 					<lable>{{form.email.label}}</lable>
 					{{form.email}}
-					{{form.email.errors}}
+					<ul class="errorlist" id="email_error"></ul>
 				</div>
 				<div class="form-group">
 					<lable>{{form.captcha.label}}</lable>
 					{{form.captcha}}
-					{{form.captcha.errors}}
-				</div>
-				<div class="form-group">
-					<input class="btn btn-primary" type="submit" value="Submit"/>
-					<input class="btn btn-default" type="reset" value="Reset"/>
+					<ul class="errorlist" id="captcha_error"></ul>
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
 					<lable>{{form.message.label}}</lable>
 					{{form.message}}
-					{{form.message.errors}}
+					<ul class="errorlist" id="message_error"></ul>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<input class="btn btn-primary" type="submit" value="Submit"/>
+					<input class="btn btn-default" type="reset" value="Reset"/>
 				</div>
 			</div>
 		</div>
