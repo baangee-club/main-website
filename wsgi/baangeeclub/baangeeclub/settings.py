@@ -39,6 +39,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = (
+	
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,9 +65,22 @@ ROOT_URLCONF = 'baangeeclub.urls'
 
 WSGI_APPLICATION = 'baangeeclub.wsgi.application'
 
-TEMPLATE_DIRS = (
-     os.path.join(BASE_DIR,'templates'),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                
+            ],
+        },
+    },
+]
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 if DEPLOY:
@@ -113,3 +127,5 @@ else:
 
 NORECAPTCHA_SITE_KEY = '6Ld_lQkTAAAAAIitG4r-YKH_0I_w5W-Q_WG8KzZV'
 NORECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']
+
+

@@ -1,11 +1,12 @@
 from django.conf.urls import patterns, include, url
-from django.conf.urls import *
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
 handler404 = 'home_baangee.views.handler404'
 handler500 = 'home_baangee.views.handler500'
+handler403 = 'home_baangee.views.handler403'
+handler400 = 'home_baangee.views.handler400'
 
 urlpatterns = patterns('',
     # Examples:

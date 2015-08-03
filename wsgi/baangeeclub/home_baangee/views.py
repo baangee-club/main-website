@@ -8,6 +8,11 @@ def handler404(request):
 def handler500(request):
 	return render(request,'error.html',{'heading':'Error 500','content':'Internal server error.'})
 
+def handler403(request):
+	return render(request,'error.html',{'heading':'Error 403','content':'permission denied.'})
+
+def handler400(request):
+	return render(request,'error.html',{'heading':'Error 400','content':'Bad request.'})
 
 def index(request):
 	data={}
