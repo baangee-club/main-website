@@ -38,12 +38,14 @@ function post_message(){
 	$('.errorlist').each(function(i,ul){
 		$(this).empty();
 	});
+	
 	$.ajax({
 		url:'/',
 		type: 'POST',
 		data:$('#post-message').serialize(),
 		cache:false,
 		beforeSend: function(xhr, settings) {
+			$("#submit").html("Submit <i class=\"fa fa-spinner fa-pulse\"></i>");
         	if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
         	    xhr.setRequestHeader("X-CSRFToken", csrftoken);
         	}
@@ -65,11 +67,14 @@ function post_message(){
 				$('#msg').html("<div class=\"alert alert-success\">Thank You "+$name+", we have received your message and will responce as requied.</div>");
 				grecaptcha.reset();
 			}
+			$("#submit").html("Submit");
 		},
 		error: function(xhr,errmsg,err){
 			$('#msg').html("<div class=\"alert alert-danger\">Something wrong in form</div>");
+			$("#submit").html("Submit");
 		}
 	});
+	
 	
 }
 
