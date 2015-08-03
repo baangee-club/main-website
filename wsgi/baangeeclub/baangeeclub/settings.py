@@ -46,9 +46,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'nocaptcha_recaptcha',
-	'home_786ms',
-	'career_786ms',
-	'students_786ms',
 	'home_baangee',
 )
 

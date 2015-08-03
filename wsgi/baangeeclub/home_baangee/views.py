@@ -32,7 +32,6 @@ def album(request,album_id=0):
 def gallery(request):
 	data={}
 	albums=Album.objects.all()
-	print albums
 	data['albums']=albums
 	return render(request,'baangee/gallery.html',data)
 	
