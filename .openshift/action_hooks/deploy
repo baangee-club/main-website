@@ -25,3 +25,5 @@ fi
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/baangeeclub/manage.py collectstatic --noinput'"
 # GETTING-STARTED: change 'myproject' to your project name:
 python "$OPENSHIFT_REPO_DIR"wsgi/baangeeclub/manage.py collectstatic --noinput
+
+if [! -f $OPENSHIFT_REPO_DIR/media]
