@@ -1,5 +1,5 @@
 {%extends 'base.html' %}
-					
+{%load thumbnail%}
 
 {% block js_include%}{% endblock%}
 	
@@ -10,7 +10,9 @@
 			{%for album in albums%}
 				<a href="/album/{{album.pk}}">
 					<div class="thumbnail col-sm-4 col-sx-6">
-						<img src="{{album.photo_set.all.0.image.url}}"/>
+						{% thumbnail album.photo_set.all.0.image.url "x150" as image %}
+							<img src="{{image.url}}"/>
+						{% endthumbnail %}
 						<div class="caption">
 							<h4 class="heading">{{album.name}}</h4>
 							{{album.description}}

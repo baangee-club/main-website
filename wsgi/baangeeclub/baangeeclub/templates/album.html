@@ -1,15 +1,20 @@
 {%extends 'base.html' %}
+{%load thumbnail%}
 
 {% block body_block%}
 <div class="section">
 	<h3 class="heading">{{album.name}}</h3>
 	<div class="container">
-	<p>{{album.description}}</p>
-	<hr>
+		<p>{{album.description}}</p><hr>
 		{%for photo in album.photo_set.all%}
+		<a href="{{photo.image.url}}">
 			<div class="thumbnail col-xs-6 col-sm-4">
-				<img src="{{photo.image.url}}">
+				{% thumbnail photo.image.url "x150" as image %}
+					<img src="{{image.url}}"/>
+				{% endthumbnail %}
 			</div>
 		{%endfor%}
+		</a>
 	</div>
+</div>
 {% endblock %}
