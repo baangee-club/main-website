@@ -132,6 +132,6 @@ CAPTCHA_AJAX = True
 
 THUMBNAIL_ALIASES = {
     '': {
-        'thumb': {'size': (200, 200), 'crop': False},
+        'thumb': {'size': (200, 0), 'crop': False},
     },
 }
