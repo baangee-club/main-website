@@ -8,17 +8,17 @@
 		<h3 class="heading">Gallery</h3>
 		<div class="container">
 			{%for album in albums%}
-				<a href="/album/{{album.pk}}">
-					<div class="thumbnail col-sm-4 col-sx-6">
-						{% thumbnail album.photo_set.all.0.image.url "x150" as image %}
-							<img src="{{image.url}}"/>
-						{% endthumbnail %}
-						<div class="caption">
-							<h4 class="heading">{{album.name}}</h4>
-							{{album.description}}
+				<div class="col-sm-4 col-sx-6"> 
+					<a href="/album/{{album.pk}}">
+						<div class="thumbnail ">
+							<img src="{{album.photo_set.all.0.image|thumbnail_url:'thumb'}}"/>
+							<div class="caption">
+								<h4 class="heading">{{album.name}}</h4>
+								{{album.description}}
+							</div>
 						</div>
-					</div>
-				</a>
+					</a>
+				</div>
 			{%endfor%}
 		</div>
 	</div>

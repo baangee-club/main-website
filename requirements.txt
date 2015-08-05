@@ -1,4 +1,4 @@
 pillow>=2.8.0
 django-nocaptcha_recaptcha
 python-image-resize
-sorl-thumbnail
+easy-thumbnails

@@ -7,14 +7,14 @@
 	<div class="container">
 		<p>{{album.description}}</p><hr>
 		{%for photo in album.photo_set.all%}
-		<a href="{{photo.image.url}}">
-			<div class="thumbnail col-xs-6 col-sm-4">
-				{% thumbnail photo.image.url "x150" as image %}
-					<img src="{{image.url}}"/>
-				{% endthumbnail %}
+			<div class=" col-xs-6 col-sm-4">
+				<a href="{{photo.image.url}}">
+					<div class="thumbnail">
+						<img src="{{photo.image|thumbnail_url:'thumb'}}"/>
+					</div>
+				</a>
 			</div>
 		{%endfor%}
-		</a>
 	</div>
 </div>
 {% endblock %}

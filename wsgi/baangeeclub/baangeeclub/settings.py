@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'nocaptcha_recaptcha',
-	'sorl.thumbnail',
+	'easy_thumbnails',
 	'home_baangee',
 )
 
@@ -129,3 +129,9 @@ else:
 NORECAPTCHA_SITE_KEY = '6Ld_lQkTAAAAAIitG4r-YKH_0I_w5W-Q_WG8KzZV'
 NORECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']
 CAPTCHA_AJAX = True
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'thumb': {'size': (200, 200), 'crop': True},
+    },
+}
