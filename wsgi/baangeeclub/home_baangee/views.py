@@ -65,7 +65,13 @@ def album(request,album_id=0):
 	album=Album.objects.get(pk=album_id)
 	data['album']=album
 	return render(request,'album.html',data)
-	
+
+def soach(request):
+	data={}
+	soach_list=Soach.objects.order_by('creation_time')[::-1]
+	data['soach_list']=soach_list
+	return render(request,'soach.html',data)
+
 def gallery(request):
 	data={}
 	albums=Album.objects.all()
@@ -74,7 +80,7 @@ def gallery(request):
 	
 def article_list(request):
 	data={}
-	data['articles']=Article.objects.all().order_by('creation_time')
+	data['articles']=Article.objects.order_by('creation_time')[::-1]
 	return render(request,'article_list.html',data)
 	
 def article(request,article_id=1):

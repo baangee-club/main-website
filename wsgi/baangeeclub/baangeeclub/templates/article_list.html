@@ -6,7 +6,9 @@
 		<div class="container">
 		{% for article in articles%}
 			<h4>{{article.title}}</h4>
-			<p>{{article.content|safe|truncatewords:50}}</p><a href="{{article.pk}}/" class="btn btn-primary">Read more..</a>
+			<p>{{article.content|safe|truncatewords:50}}</p>
+			<p>By {{article.author.get_full_name|default:article.author.username}} on {{article.creation_time|date:"d M, Y"}}</p>
+			<a href="{{article.pk}}/" class="btn btn-primary">Read more..</a>
 			<hr>
 		{%endfor%}
 	</div>

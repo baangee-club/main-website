@@ -1,0 +1,22 @@
+{%extends 'base.html' %}
+					
+
+{% block js_include%}{% endblock%}
+	
+{% block body_block%}
+	<div class="section">
+		<h3 class="heading">Soach</h3>
+		<div class="container">
+		{%for soach in soach_list%}
+			<div class="panel panel-default">
+			  <div class="panel-body center">
+				<i class="fa fa-quote-left fa-2x"></i> <i>{{soach.content}}</i> <i class="fa fa-quote-right fa-2x"></i>
+				<br>
+				on {{soach.creation_time|date:"d M, Y"}}
+			  </div>
+			   
+			</div>
+		{%endfor%}
+		</div>
+	</div>
+{% endblock %}

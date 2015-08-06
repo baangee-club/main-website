@@ -15,10 +15,14 @@ class PhotoAdmin(admin.ModelAdmin):
 
 class ArticleAdmin(admin.ModelAdmin):
 	list_display=['title','author']
-
+	
+class SoachAdmin(admin.ModelAdmin):
+	list_display=['content']
+	
 admin.site.register(Programme, ProgrammeAdmin)
 admin.site.register(Guest, GuestAdmin)
 admin.site.register(Message, MessageAdmin)
 admin.site.register(Album)
 admin.site.register(Photo,PhotoAdmin)
 admin.site.register(Article,ArticleAdmin)
+admin.site.register(Soach,SoachAdmin)
