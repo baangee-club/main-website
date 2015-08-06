@@ -10,3 +10,5 @@
 *.scss
 *.map
 .sass-cache/
+wsgi/baangeeclub/media/*
+**/migrations/*

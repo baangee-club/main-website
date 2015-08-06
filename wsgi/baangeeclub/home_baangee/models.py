@@ -2,7 +2,15 @@ from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 from easy_thumbnails.files import get_thumbnailer
+from PIL import Image
 
+def resize_image(image):
+	size=(500,500)
+	filename=str(image.path)
+	new_image = Image.open(filename)
+	new_image.thumbnail(size, Image.ANTIALIAS)
+	new_image.save(filename)
+	
 class Album(models.Model):
 	name=models.CharField(max_length=50)
 	description=models.TextField()
@@ -19,6 +27,10 @@ class Photo(models.Model):
 		return '<img width="150" src="%s">' % get_thumbnailer(self.image)['thumb'].url
 	image_tag.short_description = 'Image'
 	image_tag.allow_tags = True
+	
+	def save(self,*args, **kwargs):
+		super(Photo,self).save()
+		resize_image(self.image)
 	
 class Programme(models.Model):
 	heading=models.CharField(max_length=70)
