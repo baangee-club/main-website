@@ -64,7 +64,7 @@ class Article(models.Model):
 	image1=models.ImageField(upload_to='article',blank=True,null=True)
 	image2=models.ImageField(upload_to='article',blank=True,null=True)
 	image3=models.ImageField(upload_to='article',blank=True,null=True)
-	def __str__(self):
+	def __unicode__(self):
 		return self.title
 
 class Soach(models.Model):
