@@ -75,13 +75,15 @@
 		<h3 class="heading">Contact Us</h3>
 		<div class="row">
 		{%for contact in contact_persons%}
-			<div class="thumbnail col-xs-4">
+			<div class="col-xs-4">
+			<div class="thumbnail">
 				<img src="{{contact.image.url}}"/>
 				<div class="caption">
 					<h4>{{contact.name}} <small>{{contact.designation}}</small></h4>
 					<p><i class="fa fa-phone"></i> {{contact.mobile_number}}</p>
 					<p><i class="fa fa-envelope"></i> {{contact.email}}</p>
 				</div>
+			</div>
 			</div>
 		{%endfor%}
 		</div>
