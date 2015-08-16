@@ -16,6 +16,17 @@
 {% block body_block%}
 <div class="section" id="about">
 	<div class="container">
+		<div class="col-sm-4">
+			<h3 class="heading">News</h3>
+			<marquee direction="up" scrollamount=2 class="info-marquee" onmouseover="this.stop();" onmouseout="this.start();">
+			<ul>
+				{%for info in informations%}
+					<li>{%ifequal info.creation_time.month today.month%} <span class="label label-danger">New</span>{%endifequal%} {{info.content|safe}}</li>
+				{%endfor%}
+			</ul>
+			</marquee>
+		</div>
+		<div class="col-sm-8">
 		<h3 class="heading">About</h3>
 		<p>Baangee club is a well organised Non Government Organisation (NGO) established by Nehru Yuva Kendra Sangathan (NYKS is an autonomous organization under the Government of India, Ministry of Youth Affairs and Sports) in Pateri, kaimoor(bhabhua), Bihar in accordance to the government Act-21,1860 in the year 2008, and is running successfully working for the poor people. Over the years, Baangee Club has established a network of youth in villages, and has planned many projects like Shaheen Gatisheel Pustakalaya where children get different type of books at the lowest charge of 5/- Rs per week, Laadli fashion Tailoring Institute Where local village girls and womens are taking training, and many other programmes are running under our NGO. We also helped poor womens by forming Self Help Group (SHG) which helped them financially and morally to develop and keep pace with the our developing country. We are also helping poor and paralised children in there medication and treatment some of them are suffering from polio.
 
@@ -23,6 +34,8 @@
 
 		To show us your support please like us on facebook or recommend on Google. Thankyou.
 		</p>
+		</div>
+		
 	</div>
 </div>
 <div class="section" id="programme">
@@ -60,7 +73,20 @@
 <div class="section" id="contact">
 	<div class="container">
 		<h3 class="heading">Contact Us</h3>
-		<p>Leave us a message or e-mail us as at <a href="mailto:care@baangeeclub.in">care@baangeeclub.in</a></p>
+		<div class="row">
+		{%for contact in contact_persons%}
+			<div class="thumbnail col-xs-4">
+				<img src="{{contact.image.url}}"/>
+				<div class="caption">
+					<h4>{{contact.name}} <small>{{contact.designation}}</small></h4>
+					<p><i class="fa fa-phone"></i> {{contact.mobile_number}}</p>
+					<p><i class="fa fa-envelope"></i> {{contact.email}}</p>
+				</div>
+			</div>
+		{%endfor%}
+		</div>
+		<h5>OR</h5>
+		<p>Leave a message for us, you can also mail us as at <a href="mailto:care@baangeeclub.in">care@baangeeclub.in</a></p>
 		<div id="msg"></div>
 		<form id="post-message" action="." method="post">
 			<div class="row">
@@ -95,8 +121,6 @@
 				</div>
 			</div>
 		</div>
-		
-
 
 		</form>
 	</div>

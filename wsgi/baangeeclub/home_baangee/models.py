@@ -70,3 +70,20 @@ class Article(models.Model):
 class Soach(models.Model):
 	content=models.TextField()
 	creation_time=models.DateTimeField(default=datetime.now)
+	def __str__(self):
+		return self.content
+			
+class Information(models.Model):
+	content=models.TextField()
+	creation_time=models.DateTimeField(default=datetime.now)
+	def __str__(self):
+		return self.content
+	
+class ContactPerson(models.Model):
+	name=models.CharField(max_length=200)
+	image=models.ImageField(upload_to="contact_persons")
+	designation=models.CharField(max_length=200)
+	email=models.EmailField(blank=True)
+	mobile_number=models.CharField(max_length=100)
+	def __str__(self):
+		return self.name

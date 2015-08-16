@@ -1,4 +1,3 @@
-
 $(window).scroll(function(){
     if($(this).scrollTop() > 50)
     {   
@@ -64,7 +63,7 @@ function post_message(){
 					});
 				});
 			}else{
-				$('#msg').html("<div class=\"alert alert-success\">Thank You "+$name+", we have received your message and will responce as requied.</div>");
+				$('#msg').html("<div class=\"alert alert-success\">Thank You "+$name+", we have received your message and will respond as required.</div>");
 				grecaptcha.reset();
 			}
 			$("#submit").html("Submit");

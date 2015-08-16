@@ -19,6 +19,12 @@ class ArticleAdmin(admin.ModelAdmin):
 class SoachAdmin(admin.ModelAdmin):
 	list_display=['content']
 	
+class InformationAdmin(admin.ModelAdmin):
+	list_display=['content']
+
+class ContactPersonAdmin(admin.ModelAdmin):
+	list_display=['name','designation','email','mobile_number']
+	
 admin.site.register(Programme, ProgrammeAdmin)
 admin.site.register(Guest, GuestAdmin)
 admin.site.register(Message, MessageAdmin)
@@ -26,3 +32,5 @@ admin.site.register(Album)
 admin.site.register(Photo,PhotoAdmin)
 admin.site.register(Article,ArticleAdmin)
 admin.site.register(Soach,SoachAdmin)
+admin.site.register(Information,InformationAdmin)
+admin.site.register(ContactPerson,ContactPersonAdmin)

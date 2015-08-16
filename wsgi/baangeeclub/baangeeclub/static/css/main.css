@@ -30,6 +30,7 @@ h3 {
   h2 .small,
   h3 .small {
     font-size: 65%; }
+
 h4,
 h5,
 h6 {
@@ -76,7 +77,8 @@ body {
   line-height: 1.8;
   color: rgba(0, 0, 0, 0.6);
   background-color: #eee;
-  transition: margin 0.3s; }
+  transition: margin 0.3s;
+  word-wrap: break-word; }
   @media (min-width: 360px) {
     body {
       min-width: 360px; } }
@@ -405,6 +407,15 @@ body {
 .programme {
   margin-top: 40px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #999; }
+  border-bottom: 1px dashed #999; }
+
+.info-marquee {
+  height: 150px; }
+  .info-marquee ul {
+    list-style: none; }
+    .info-marquee ul li {
+      border-bottom: 1px dashed #999;
+      margin-bottom: 5px;
+      padding-bottom: 3px; }
 
 /*# sourceMappingURL=main.css.map */

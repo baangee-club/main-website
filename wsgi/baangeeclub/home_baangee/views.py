@@ -4,6 +4,7 @@ from .forms import *
 from django.http import HttpResponse
 import json
 from django.template.context_processors import csrf
+import datetime
 
 def handler404(request):
 	return render(request,'error.html',{'heading':'Error 404','content':'Requested URL '+request.build_absolute_uri()+' not found'})
@@ -43,6 +44,9 @@ def index(request):
 		form=MessageForm()
 		data['programmes']=Programme.objects.all()
 		data['form']=form
+		data['informations']=Information.objects.all().order_by("creation_time")
+		data['today']=datetime.date.today()
+		data['contact_persons']=ContactPerson.objects.all()
 		return render(request,'index.html',data)
 
 '''
