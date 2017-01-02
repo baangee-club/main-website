@@ -10,5 +10,6 @@
 *.scss
 *.map
 .sass-cache/
-wsgi/baangeeclub/media/*
+media/
 venv/
+db.sqlite3
