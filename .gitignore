@@ -11,4 +11,4 @@
 *.map
 .sass-cache/
 wsgi/baangeeclub/media/*
-
+venv/
