@@ -28,8 +28,6 @@ if DEPLOY:
 else:
 	DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
-
 if DEBUG:
 	ALLOWED_HOSTS = []
 else:
@@ -39,7 +37,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = (
-	
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
             ],
         },
     },
@@ -127,7 +125,10 @@ else:
 	MEDIA_URL= '/home/zeeshan/Desktop/Websites/openshift/baangeeclub/wsgi/baangeeclub/media/'
 
 NORECAPTCHA_SITE_KEY = '6Ld_lQkTAAAAAIitG4r-YKH_0I_w5W-Q_WG8KzZV'
-NORECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']
+NORECAPTCHA_SECRET_KEY = ''
+if os.environ.has_key('RECAPTCHA_SECRET_KEY'):
+	NORECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']
+
 CAPTCHA_AJAX = True
 
 THUMBNAIL_ALIASES = {

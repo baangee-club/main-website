@@ -1,5 +1,5 @@
-django
-pillow>=2.8.0
-django-nocaptcha_recaptcha
-python-image-resize
-easy-thumbnails
+Django==1.10.4
+django-nocaptcha-recaptcha==0.0.19
+easy-thumbnails==2.3
+Pillow==3.4.2
+python-image-resize==1.1.2
