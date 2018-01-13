@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 import dj_database_url
 
+ON_PRODUCTION = False
+if os.environ.has_key('ON_HEROKU'):
+    ON_PRODUCTION = True
+
 DJ_PROJECT_DIR = os.path.realpath(__file__)
 BASE_DIR = os.path.dirname(DJ_PROJECT_DIR)
 
@@ -117,7 +121,7 @@ STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'static'),
 )
 
-if DEPLOY:
+if ON_PRODUCTION:
 	MEDIA_ROOT = os.path.join('','media')
 	MEDIA_URL= '/media/'
 else:
