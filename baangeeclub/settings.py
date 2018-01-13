@@ -14,7 +14,7 @@ import os
 DJ_PROJECT_DIR = os.path.realpath(__file__)
 BASE_DIR = os.path.dirname(DJ_PROJECT_DIR)
 
-if 'OPENSHIFT_REPO_DIR' in os.environ:
+if 'ON_HEROKU' in os.environ:
 	DEPLOY=True
 else:
 	DEPLOY=False
