@@ -10,26 +10,25 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 
 DJ_PROJECT_DIR = os.path.realpath(__file__)
 BASE_DIR = os.path.dirname(DJ_PROJECT_DIR)
 
-if 'ON_HEROKU' in os.environ:
-	DEPLOY=True
+# SECURITY WARNING: don't run with debug turned on in production!
+if ON_PRODUCTION:
+    if os.environ.has_key('DEBUG'):
+        DEBUG = os.environ['DEBUG']=='True'
+    else:
+        DEBUG = False
 else:
-	DEPLOY=False
+     DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!iudke*hi8vo#qyntq5yxm+p2itkuqg-m@bo8o%+cbnq(h%@@-'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-if DEPLOY:
-	DEBUG=False
-else:
-	DEBUG = True
-
 if DEBUG:
-	ALLOWED_HOSTS = []
+	ALLOWED_HOSTS = ['localhost']
 else:
 	ALLOWED_HOSTS = ['*']
 
@@ -82,17 +81,18 @@ TEMPLATES = [
 ]
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-if DEPLOY:
-	DB_BASE_DIR=os.environ['OPENSHIFT_DATA_DIR']
+if ON_PRODUCTION:
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 else:
 	DB_BASE_DIR=BASE_DIR
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_BASE_DIR, 'db.sqlite3'),
-    }
-}
+	DATABASES = {
+	    'default': {
+	        'ENGINE': 'django.db.backends.sqlite3',
+	        'NAME': os.path.join(DB_BASE_DIR, 'db.sqlite3'),
+	    }
+	}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -112,13 +112,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'..','..','static')
+STATIC_ROOT = os.path.join(BASE_DIR,'..','static')
 STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'static'),
 )
 
 if DEPLOY:
-	MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR',''),'media')
+	MEDIA_ROOT = os.path.join('','media')
 	MEDIA_URL= '/media/'
 else:
 	MEDIA_ROOT = '/home/zeeshan/Desktop/Websites/openshift/baangeeclub/wsgi/baangeeclub/media/'
