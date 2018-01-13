@@ -85,18 +85,16 @@ TEMPLATES = [
 ]
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+DB_BASE_DIR=BASE_DIR
+DATABASES = {
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(DB_BASE_DIR, 'db.sqlite3'),
+	}
+}
 if ON_PRODUCTION:
     db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-else:
-	DB_BASE_DIR=BASE_DIR
-
-	DATABASES = {
-	    'default': {
-	        'ENGINE': 'django.db.backends.sqlite3',
-	        'NAME': os.path.join(DB_BASE_DIR, 'db.sqlite3'),
-	    }
-	}
+    DATABASES['default'].update(db_from_env)	
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
