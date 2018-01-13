@@ -11,3 +11,7 @@ python-image-resize==1.1.2
 pyuploadcare==2.1.0
 requests==2.13.0
 six==1.10.0
+dj-database-url==0.4.1
+gunicorn==19.6.0
+psycopg2==2.6.1
+whitenoise==2.0.6
