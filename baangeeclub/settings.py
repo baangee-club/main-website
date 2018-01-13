@@ -16,8 +16,7 @@ ON_PRODUCTION = False
 if os.environ.has_key('ON_HEROKU'):
     ON_PRODUCTION = True
 
-DJ_PROJECT_DIR = os.path.realpath(__file__)
-BASE_DIR = os.path.dirname(DJ_PROJECT_DIR)
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ON_PRODUCTION:
