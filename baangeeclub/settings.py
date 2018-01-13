@@ -32,7 +32,7 @@ else:
 SECRET_KEY = '!iudke*hi8vo#qyntq5yxm+p2itkuqg-m@bo8o%+cbnq(h%@@-'
 
 if DEBUG:
-	ALLOWED_HOSTS = ['localhost']
+	ALLOWED_HOSTS = ['localhost','baangeeclub.herokuapp.com']
 else:
 	ALLOWED_HOSTS = ['*']
 
@@ -94,7 +94,7 @@ DATABASES = {
 }
 if ON_PRODUCTION:
     db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)	
+    DATABASES['default'].update(db_from_env)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
