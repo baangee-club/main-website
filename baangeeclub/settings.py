@@ -28,10 +28,13 @@ else:
      DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!iudke*hi8vo#qyntq5yxm+p2itkuqg-m@bo8o%+cbnq(h%@@-'
+if ON_PRODUCTION:
+    SECRET_KEY = os.environ['SECRET_KEY']
+else:
+    SECRET_KEY = os.environ['BAANGEE_CLUB_SECRET_KEY']
 
-if DEBUG:
-	ALLOWED_HOSTS = ['localhost','baangeeclub.herokuapp.com']
+if ON_PRODUCTION:
+	ALLOWED_HOSTS = ['baangeeclub.herokuapp.com','baangeeclub.in','www.baangeeclub.in']
 else:
 	ALLOWED_HOSTS = ['*']
 
