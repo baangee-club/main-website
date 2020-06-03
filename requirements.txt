@@ -1,5 +1,5 @@
 appdirs==1.4.3
-Django==1.10.6
+Django==1.11.28
 django-nocaptcha-recaptcha==0.0.19
 easy-thumbnails==2.3
 olefile==0.44
