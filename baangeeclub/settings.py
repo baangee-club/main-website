@@ -12,6 +12,17 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 import dj_database_url
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {"console": {"format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"}},
+    "handlers": {"console": {"class": "logging.StreamHandler", "formatter": "console"}},
+    "root": {"handlers": ["console"], "level": "DEBUG"},
+    "loggers": {
+        "app": {"handlers": ["console"], "level": "DEBUG", "propagate": False},
+    },
+}
+
 ON_PRODUCTION = os.environ.get("ON_HEROKU") == "True"
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -47,6 +58,7 @@ INSTALLED_APPS = (
     "nocaptcha_recaptcha",
     "easy_thumbnails",
     "home_baangee",
+    "epos",
 )
 
 MIDDLEWARE = [

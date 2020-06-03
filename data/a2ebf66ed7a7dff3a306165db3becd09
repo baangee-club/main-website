@@ -1,0 +1,261 @@
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+</head>
+<body>
+
+	<table width="80%" align="center">
+	<tr class="tableheader"><th colspan="7">RC 10310060087015900034 Details for May'2020</th></tr>
+	<!-- <tr class="tableheader"><th colspan="7">Member Details</th></tr> -->
+	
+	<tr class="tableheader"><th colspan="7">
+	<font style="color: orange;"> District :</font> Kaimur (Bhabua) &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+	<font style="color: orange;">Taluk :</font> Chand &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+	<font style="color: orange;">FPS Id :</font> 123300100909 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+	<font style="color: orange;">Scheme :</font> PHH&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<font style="color: orange;">No of Units :</font> 6&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+	</th></tr>
+	<tr class="tableheader">
+	<th>Sl.No</th>
+	<th>Member</th>
+	<th>Gender</th>
+	<th>Age</th>
+	<!-- <th>Mobile</th> -->
+	<th>Status</th>
+	<th>UID Status</th>
+	
+	
+	</tr>	
+		
+	<tr>
+	<td>1</td>
+	<td>DEVANTI DEVI</td>
+	<td>Female</td>
+	<td align="right">56</td>
+	
+	<td>Active</td>
+	<td>
+	
+	Seeded
+	
+	</td>
+	
+	
+	</tr>	
+		
+	<tr>
+	<td>2</td>
+	<td>RAMKRIT SINGH</td>
+	<td>Male</td>
+	<td align="right">59</td>
+	
+	<td>Active</td>
+	<td>
+	
+	Seeded
+	
+	</td>
+	
+	
+	</tr>	
+		
+	<tr>
+	<td>3</td>
+	<td>SUDARSAN KUMAR</td>
+	<td>Male</td>
+	<td align="right">20</td>
+	
+	<td>Active</td>
+	<td>
+	
+	Seeded
+	
+	</td>
+	
+	
+	</tr>	
+		
+	<tr>
+	<td>4</td>
+	<td>AMARNATH KUMAR</td>
+	<td>Male</td>
+	<td align="right">23</td>
+	
+	<td>Active</td>
+	<td>
+	
+	Seeded
+	
+	</td>
+	
+	
+	</tr>	
+		
+	<tr>
+	<td>5</td>
+	<td>RAM BHAROS KUMAR</td>
+	<td>Male</td>
+	<td align="right">15</td>
+	
+	<td>Active</td>
+	<td>
+	
+	Seeded
+	
+	</td>
+	
+	
+	</tr>	
+		
+	<tr>
+	<td>6</td>
+	<td>SUMAN KUMARI</td>
+	<td>Female</td>
+	<td align="right">17</td>
+	
+	<td>Active</td>
+	<td>
+	
+	Seeded
+	
+	</td>
+	
+	
+	</tr>	
+	</table>
+<br/>
+
+<br />
+	
+	<table width="80%" align="center">
+		<tr class="tableheader">
+			<td colspan="4">Entitlement for RC : 10310060087015900034</td>
+		</tr>
+		
+		<tr class="tableheader">
+			
+			<td>Wheat<br />(Kg)</td>
+			
+			<td>Rice<br />(Kg)</td>
+			
+			<td>PMGKAY-Rice<br />(Kg)</td>
+			
+			<td>PMGKAY-Dal<br />(Kg)</td>
+			
+		</tr>
+		<tr>
+			
+			<td align="right">12.000</td>
+			
+			<td align="right">18.000</td>
+			
+			<td align="right">30.000</td>
+			
+			<td align="right">1.000</td>
+			
+		</tr>
+		
+	</table>
+	
+	<br />
+<br />
+	
+	<table width="80%" align="center">
+		<tr class="tableheader">
+			<td colspan="8">Authentications for RC :10310060087015900034 in May'2020</td>
+		</tr>
+		<tr class="tableheader">
+			<td>Sl No</td>
+			<td>FPS Id</td>
+			<td>Auth Type</td>
+			<td>Member</td>
+			<td>Error Code</td>
+			<td>Error Desc</td>
+			<td>Date</td>
+			<td>Total<br />Auth
+			</td>
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			<td>123300100909</td>
+			<td>Bio</td>
+			<td>AMARNATH KUMAR</td>
+			<td>100</td>
+			<td>Success</td>
+			<td>30-05-2020</td>
+			<td align="right">1</td>
+		</tr>
+		
+	</table>
+	
+	<br />
+	
+	<table width="80%" align="center">
+		<tr class="tableheader">
+			<td colspan="11">Transaction Details for RC : 10310060087015900034</td>
+		</tr>
+		<tr class="tableheader">
+			<td rowspan="2">Sl.No</td>
+			<td rowspan="2">Member</td>
+			<td rowspan="2">Availed<br />FPS</td>
+			<td rowspan="2">Month</td>
+			<td rowspan="2">Year</td>
+			<td rowspan="2">Avail. Date</td>
+			<td rowspan="2">Avail. Type</td>
+			<td colspan="4">Avail.Commodity</td>
+		</tr>
+		<tr class="tableheader">
+			
+			<td>Wheat<br />(Kg)</td>
+			
+			<td>Rice<br />(Kg)</td>
+			
+			<td>PMGKAY-Rice<br />(Kg)</td>
+			
+			<td>PMGKAY-Dal<br />(Kg)</td>
+			
+		</tr>
+		
+					<tr>
+						<td>1</td>
+						<td>
+						AMARNATH KUMAR								
+						</td>
+						<td>123300100909</td>															
+						<td>May</td>
+						<td align="right">2020</td>
+						<td>30-05-2020</td>
+						<td>
+						 Bio
+						</td>
+						
+						<td align="right">12.000</td>
+						
+						<td align="right">18.000</td>
+						
+						<td align="right">30.000</td>
+						
+						<td align="right">1.000</td>
+						
+					</tr>
+					
+	</table>
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

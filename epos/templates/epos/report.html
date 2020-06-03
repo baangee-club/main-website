@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>EPOS report for Ration</title>
+    </head>
+    <body>
+        <h1>EPOS Report</h1>
+        <table>
+            <tr>
+                <th>Sr. no</th>
+                <th>Name</th>
+                <th>Scheme</th>
+                <th>RC Card Number</th>
+                <th>Number of members</th>
+                <th>PHH Wheat</th>
+                <th>PHH Rice</th>
+                <th>AAY Wheat</th>
+                <th>AAY Rice</th>
+                <th>Total Amount</th>
+                <th>PMGKAY Rice</th>
+                <th>PMGKAY daal</th>
+                <th>Sign</th>
+            </tr>
+            {% for sale in sales_data%}
+            <tr>
+                <td>{{sale.get('Sl No')}}</td>
+                <td>Name</td>
+                <td>{{sale.get('Scheme')}}</td>
+                <td>{{sale.get('RC No')}}</td>
+                <td>Number of members</td>
+                <td>PHH Wheat</td>
+                <td>PHH Rice</td>
+                <td>AAY Wheat</td>
+                <td>AAY Rice</td>
+                <td>Total Amount</td>
+                <td>PMGKAY Rice</td>
+                <td>PMGKAY daal</td>
+                <td>Sign</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr/>
+        {{rc_details}}
+    </body>
+</html>
