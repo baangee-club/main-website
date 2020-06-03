@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+django-nocaptcha-recaptcha = "*"
+gunicorn = "*"
+whitenoise = "*"
+pillow = "*"
+dj-database-url = "*"
+easy-thumbnails = "*"
+
+[requires]
+python_version = "3.8"
