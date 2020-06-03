@@ -1,0 +1,11 @@
+{
+  "name": "baangeeclub",
+  "description": "baangee club",
+  "version": "0.0.1",
+  "scripts": {
+	"postinstall": "bower install"
+	},
+	"dependencies": {
+		"bower": "^1.5.2"
+	}
+}

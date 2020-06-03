@@ -1,0 +1,32 @@
+{
+  "name": "Baangee Club",
+  "authors": [
+    "Zeeshan Khan <zkhan1093@gmail.com>"
+  ],
+  "description": "website for Baangee Club NGO",
+  "main": "index.html",
+  "keywords": [
+    "NGO",
+    "helping",
+    "poor",
+    "job",
+    "form",
+    "application",
+    "bill",
+    "recharge"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.6.3",
+    "bootstrap": "^3.3.6",
+    "jquery-ui": "^1.12.1"
+  }
+}

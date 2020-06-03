@@ -10,28 +10,31 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 
-DJ_PROJECT_DIR = os.path.realpath(__file__)
-BASE_DIR = os.path.dirname(DJ_PROJECT_DIR)
+ON_PRODUCTION = False
+if os.environ.has_key('ON_HEROKU'):
+    ON_PRODUCTION = True
 
-if 'OPENSHIFT_REPO_DIR' in os.environ:
-	DEPLOY=True
-else:
-	DEPLOY=False
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!iudke*hi8vo#qyntq5yxm+p2itkuqg-m@bo8o%+cbnq(h%@@-'
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if DEPLOY:
-	DEBUG=False
+if ON_PRODUCTION:
+    if os.environ.has_key('DEBUG'):
+        DEBUG = os.environ['DEBUG']=='True'
+    else:
+        DEBUG = False
 else:
-	DEBUG = True
+     DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
+# SECURITY WARNING: keep the secret key used in production secret!
+if ON_PRODUCTION:
+    SECRET_KEY = os.environ['SECRET_KEY']
+else:
+    SECRET_KEY = os.environ['BAANGEE_CLUB_SECRET_KEY']
 
-if DEBUG:
-	ALLOWED_HOSTS = []
+if ON_PRODUCTION:
+	ALLOWED_HOSTS = ['baangeeclub.herokuapp.com','baangeeclub.in','www.baangeeclub.in']
 else:
 	ALLOWED_HOSTS = ['*']
 
@@ -39,7 +42,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = (
-	
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,24 +80,23 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
             ],
         },
     },
 ]
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-if DEPLOY:
-	DB_BASE_DIR=os.environ['OPENSHIFT_DATA_DIR']
-else:
-	DB_BASE_DIR=BASE_DIR
-
+DB_BASE_DIR=BASE_DIR
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_BASE_DIR, 'db.sqlite3'),
-    }
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(DB_BASE_DIR, 'db.sqlite3'),
+	}
 }
+if ON_PRODUCTION:
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -114,20 +116,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'..','..','static')
+STATIC_ROOT = os.path.join(BASE_DIR,'..','static')
 STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'static'),
 )
 
-if DEPLOY:
-	MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR',''),'media')
+if ON_PRODUCTION:
+	MEDIA_ROOT = os.path.join('','media')
 	MEDIA_URL= '/media/'
 else:
 	MEDIA_ROOT = '/home/zeeshan/Desktop/Websites/openshift/baangeeclub/wsgi/baangeeclub/media/'
 	MEDIA_URL= '/home/zeeshan/Desktop/Websites/openshift/baangeeclub/wsgi/baangeeclub/media/'
 
 NORECAPTCHA_SITE_KEY = '6Ld_lQkTAAAAAIitG4r-YKH_0I_w5W-Q_WG8KzZV'
-NORECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']
+NORECAPTCHA_SECRET_KEY = ''
+if os.environ.has_key('RECAPTCHA_SECRET_KEY'):
+	NORECAPTCHA_SECRET_KEY = os.environ['RECAPTCHA_SECRET_KEY']
+
 CAPTCHA_AJAX = True
 
 THUMBNAIL_ALIASES = {
